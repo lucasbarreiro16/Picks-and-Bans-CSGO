@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+
+  color: white;
+
+  padding: 2rem;
+}
+
+header {
+  font-size: 3rem;
+  font-family: 'Anton', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs {
+  height: 6rem;
+}
+
+.choice_selection_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 10rem;
+}
+
+.choice_selection_text h1 {
+  padding: 1rem;
+}
+
+.line {
+  flex-grow: 1;
+
+  border: 2px solid #1EB720;
+}
+
+/* === CARDS === */
+.picks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+
+  gap: 2rem;
+
+  max-width: 100vw;
+  
+  margin-inline: auto;
+}
+
+.card {
+  border-radius: 10px;
+  border: 2px solid green;
+
+  cursor: pointer;
+  
+  overflow: hidden;
+  
+  position: relative;
+  
+  min-height: 22rem;
+}
+
+.train::before {
+  background-image: url('assets/de_train.jpg');
+}
+
+.mirage::before {
+  background-image: url('assets/de_mirage.jpg');
+}
+
+.cache::before {
+  background-image: url('assets/de_cache.jpg');
+}
+
+.card::before {
+  background-position: center;
+  background-size: cover;
+
+  content: "";
+
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.inferno::before {
+  background-image: url('assets/de_inferno.jpg');
+}
+
+.cobblestone::before {
+  background-image: url('assets/de_cobblestone.jpg');
+}
+
+.ancient::before {
+  background-image: url('assets/de_ancient.jpg');
+}
+
+.anubis::before {
+  background-image: url('assets/de_anubis.jpg');
+}
+
+.dust2::before {
+  background-image: url('assets/de_dust2.jpg');
+}
+
+.nuke::before {
+  background-image: url('assets/de_nuke.jpg');
+}
+
+.overpass::before {
+  background-image: url('assets/de_overpass.jpg');
+}
+
+.vertigo::before {
+  background-image: url('assets/de_vertigo.jpg');
+}
+
+
+.card:hover {
+  border: 6px solid #E22859;
+}
+
+.card:hover .check_icon {
+  opacity: 1;
+}
+
+.card:hover .confirmation {
+  opacity: 1;
+}
+
+.confirmation {
+  background-color: #E22859;
+
+  font-family: 'Anton';
+
+  height: 3rem;
+  width: 100%;
+
+  opacity: 0;
+  
+  transition: opacity 0.3s ease-in-out;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.check_icon {
+  background-color: #E22859;
+
+  border-radius: 50%;
+
+  height: 3rem;
+  width: 3rem;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check_icon i {
+  color: white;
+
+  font-size: 1.5rem;
+}
+
+.map_name{
+  font-family: 'Inter';
+  font-weight: 700;
+
+  width: 100%;
+
+  text-align: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  transform: translatex(-50%);
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.map_name h2 {
+  color: white;
+
+  font-size: 2rem;
+
+  margin: 0;
+
+  padding-bottom: 10px;
+
+  text-shadow: 1px 1px #000;
+}
+
+.selected{
+  border: 6px solid #E22859;
+  cursor: not-allowed;
+  overflow: hidden;
+}
+
+.selected::before {
+  filter: grayscale(100%);
+}
+
+.selected .accept, .selected .check {
+  opacity: 1;
+}
+
+.picked  {
+  border: 6px solid #1EB720;
+
+  cursor: not-allowed;
+}
+
+.card.picked.disable-hover:hover {
+  border: 6px solid #1EB720;
+}
+
+.card.picked.disable-hover:hover .check_icon {
+  opacity: 0;
+}
+
+.card.picked.disable-hover:hover .confirmation {
+  opacity: 0;
+}
+
+.reset {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+
+  min-width: 35%;
+  width: 35%;
+  height: 50px;
+
+  font-family: 'Anton', sans-serif;
+
+  letter-spacing: 2px;
+
+  font-size: 15px;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  color: #1EB720;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 2rem;
+
+  margin-top: 2rem;
+  margin-inline: auto;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  opacity: 0.8;
+
+}
+
+.reset:hover {
+  opacity: 1;
+}
+
+.reset span:first-of-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(to right, transparent, #1EB720);
+  
+  filter: blur(3px);
+
+  animation: animar1 2s linear infinite;
+}
+
+@keyframes animar1 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.reset span:nth-of-type(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent, #1EB720);
+  
+  filter: blur(3px);
+
+  animation: animar2 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animar2 {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.reset span:nth-of-type(3) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 3px;
+  background-image: linear-gradient(to left, transparent, #1EB720);
+  
+  filter: blur(3px);
+
+  animation: animar3 2s linear infinite;
+}
+
+@keyframes animar3 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.reset span:last-of-type {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent, #1EB720);
+
+  filter: blur(3px);
+
+  animation: animar4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+.reset:hover span{
+  filter: blur(0px);
+}
+
+@keyframes animar4 {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .reset {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  .reset span:nth-of-type(1) {
+    filter: blur(1px);
+  }
+
+  .reset span:nth-of-type(2) {
+    filter: blur(1px);
+  }
+
+  .reset span:nth-of-type(3) {
+    filter: blur(1px);
+  }
+
+  .reset span:last-of-type {
+    filter: blur(1px);
+  }
+
+}
